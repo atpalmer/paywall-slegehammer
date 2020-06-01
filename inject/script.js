@@ -31,9 +31,13 @@
     htmlTag.removeAttribute('data-ssor-modalup');
 
     _removeElement(document.getElementById('reg-overlay'));
+    _removeElement(document.getElementById('ensNotifyBanner'));
 
-    //fixme (console API):
-    //getEventListeners(window).scroll.forEach(e => window.removeEventListener('scroll', e.listener));
+    // Move HTML to a nested frame to dodge window event listeners
+    Array.from(document.getElementsByTagName('script')).forEach(_removeElement);
+    const pageHTML = htmlTag.innerHTML;
+    document.body.innerHTML = '<iframe id="sledgehammerFrame" style="height: 95vh; width: 100vw; border: 0; margin: 0;"></iframe>';
+    document.getElementById('sledgehammerFrame').contentWindow.document.write('<html><base target="_parent">' + pageHTML + '</html>');
   }
 
   function usatoday() {
@@ -53,6 +57,7 @@
   const func = hostmap[window.location.hostname];
 
   if(func) {
+    console.log(`Running script for ${window.location.hostname}`);
     func()
   } else {
     console.error(`No script for ${window.location.hostname}`);
