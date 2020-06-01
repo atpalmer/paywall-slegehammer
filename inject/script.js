@@ -40,6 +40,14 @@
     document.getElementById('sledgehammerFrame').contentWindow.document.write('<html><base target="_parent">' + pageHTML + '</html>');
   }
 
+  function nytimes() {
+    _removeElement(document.getElementById('gateway-content'));
+    _removeElement(document.getElementById('app').firstChild.firstChild.lastChild);
+    document.body.style.overflow = 'scroll';
+    document.getElementById('app').firstChild.firstChild.style.position = 'static';
+    document.getElementById('app').firstChild.firstChild.style.overflow = 'visible';
+  }
+
   function usatoday() {
     document.getElementsByTagName('html')[0].removeAttribute('style');
     document.getElementsByTagName('body')[0].removeAttribute('style');
@@ -51,6 +59,7 @@
     'www.businessinsider.com': businessinsider,
     'www.forbes.com': forbes,
     'www.latimes.com': latimes,
+    'www.nytimes.com': nytimes,
     'www.usatoday.com': usatoday,
   };
 
