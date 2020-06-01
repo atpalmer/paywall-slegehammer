@@ -14,6 +14,21 @@
     });
   }
 
+  function _hammer_dssMeterup() {
+    const htmlTag = document.getElementsByTagName('html')[0]
+    htmlTag.removeAttribute('data-dss-meterup');
+    htmlTag.removeAttribute('data-ssor-modalup');
+
+    _removeElement(document.getElementById('reg-overlay'));
+    _removeElement(document.getElementById('ensNotifyBanner'));
+
+    // Move HTML to a nested frame to dodge window event listeners
+    Array.from(document.getElementsByTagName('script')).forEach(_removeElement);
+    const pageHTML = htmlTag.innerHTML;
+    document.body.innerHTML = '<iframe id="sledgehammerFrame" style="height: 95vh; width: 100vw; border: 0; margin: 0;"></iframe>';
+    document.getElementById('sledgehammerFrame').contentWindow.document.write('<html><base target="_parent">' + pageHTML + '</html>');
+  }
+
   function _hammer_tpModal() {
     _removeElement(document.getElementsByClassName('tp-modal')[0]);
     _removeElement(document.getElementsByClassName('tp-backdrop')[0]);
@@ -30,6 +45,10 @@
     _hammer_tpModal();
   }
 
+  function chicagotribune() {
+    _hammer_dssMeterup();
+  }
+
   function forbes() {
     _removeElement(document.getElementsByClassName('fbs-auth__adblock')[0]);
     document.getElementsByTagName('body')[0].removeAttribute('class');
@@ -40,18 +59,7 @@
   }
 
   function latimes() {
-    const htmlTag = document.getElementsByTagName('html')[0]
-    htmlTag.removeAttribute('data-dss-meterup');
-    htmlTag.removeAttribute('data-ssor-modalup');
-
-    _removeElement(document.getElementById('reg-overlay'));
-    _removeElement(document.getElementById('ensNotifyBanner'));
-
-    // Move HTML to a nested frame to dodge window event listeners
-    Array.from(document.getElementsByTagName('script')).forEach(_removeElement);
-    const pageHTML = htmlTag.innerHTML;
-    document.body.innerHTML = '<iframe id="sledgehammerFrame" style="height: 95vh; width: 100vw; border: 0; margin: 0;"></iframe>';
-    document.getElementById('sledgehammerFrame').contentWindow.document.write('<html><base target="_parent">' + pageHTML + '</html>');
+    _hammer_dssMeterup();
   }
 
   function nytimes() {
@@ -72,6 +80,7 @@
   const hostmap = {
     'www.bloomberg.com': bloomberg,
     'www.businessinsider.com': businessinsider,
+    'www.chicagotribune.com': chicagotribune,
     'www.forbes.com': forbes,
     'foreignpolicy.com': foreignpolicy,
     'www.latimes.com': latimes,
