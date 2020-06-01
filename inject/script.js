@@ -14,6 +14,12 @@
     });
   }
 
+  function bloomberg() {
+    document.getElementsByTagName('html')[0].removeAttribute('data-paywall-overlay-status');
+    document.getElementsByTagName('body')[0].removeAttribute('data-paywall-overlay-status');
+    _removeElement(document.getElementById('graphics-paywall-overlay'));
+  }
+
   function businessinsider() {
     _removeElement(document.getElementsByClassName('tp-modal')[0]);
     _removeElement(document.getElementsByClassName('tp-backdrop')[0]);
@@ -56,6 +62,7 @@
   }
 
   const hostmap = {
+    'www.bloomberg.com': bloomberg,
     'www.businessinsider.com': businessinsider,
     'www.forbes.com': forbes,
     'www.latimes.com': latimes,
