@@ -14,6 +14,12 @@
     });
   }
 
+  function _hammer_tpModal() {
+    _removeElement(document.getElementsByClassName('tp-modal')[0]);
+    _removeElement(document.getElementsByClassName('tp-backdrop')[0]);
+    document.getElementsByTagName('body')[0].removeAttribute('class');
+  }
+
   function bloomberg() {
     document.getElementsByTagName('html')[0].removeAttribute('data-paywall-overlay-status');
     document.getElementsByTagName('body')[0].removeAttribute('data-paywall-overlay-status');
@@ -21,14 +27,16 @@
   }
 
   function businessinsider() {
-    _removeElement(document.getElementsByClassName('tp-modal')[0]);
-    _removeElement(document.getElementsByClassName('tp-backdrop')[0]);
-    document.getElementsByTagName('body')[0].removeAttribute('class');
+    _hammer_tpModal();
   }
 
   function forbes() {
     _removeElement(document.getElementsByClassName('fbs-auth__adblock')[0]);
     document.getElementsByTagName('body')[0].removeAttribute('class');
+  }
+
+  function foreignpolicy() {
+    _hammer_tpModal();
   }
 
   function latimes() {
@@ -65,6 +73,7 @@
     'www.bloomberg.com': bloomberg,
     'www.businessinsider.com': businessinsider,
     'www.forbes.com': forbes,
+    'foreignpolicy.com': foreignpolicy,
     'www.latimes.com': latimes,
     'www.nytimes.com': nytimes,
     'www.usatoday.com': usatoday,
