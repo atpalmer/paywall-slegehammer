@@ -70,6 +70,12 @@
     document.getElementById('app').firstChild.firstChild.style.overflow = 'visible';
   }
 
+  function realclearpolitics() {
+    _removeElement(document.getElementsByClassName('adb-overlay')[0]);
+    _removeElement(document.getElementsByClassName('modal')[0]);
+    document.getElementsByTagName('body')[0].removeAttribute('class');
+  }
+
   function usatoday() {
     document.getElementsByTagName('html')[0].removeAttribute('style');
     document.getElementsByTagName('body')[0].removeAttribute('style');
@@ -85,6 +91,7 @@
     'foreignpolicy.com': foreignpolicy,
     'www.latimes.com': latimes,
     'www.nytimes.com': nytimes,
+    'www.realclearpolitics.com': realclearpolitics,
     'www.usatoday.com': usatoday,
   };
 
