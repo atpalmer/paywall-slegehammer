@@ -101,7 +101,7 @@
     console.log(`Running script for ${window.location.hostname}`);
     func()
   } else {
-    console.error(`No script for ${window.location.hostname}`);
+    console.log(`No script for ${window.location.hostname}`);
   }
 })();
 
