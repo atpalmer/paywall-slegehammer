@@ -83,6 +83,10 @@
     _getDivsByClassPrefix('sp_veil').forEach(div => _removeElement(div));
   }
 
+  function washingtonpost() {
+    Array.from(document.getElementsByClassName('fixed')).forEach(_removeElement);
+  }
+
   const hostmap = {
     'www.bloomberg.com': bloomberg,
     'www.businessinsider.com': businessinsider,
@@ -93,6 +97,7 @@
     'www.nytimes.com': nytimes,
     'www.realclearpolitics.com': realclearpolitics,
     'www.usatoday.com': usatoday,
+    'www.washingtonpost.com': washingtonpost,
   };
 
   const func = hostmap[window.location.hostname];
