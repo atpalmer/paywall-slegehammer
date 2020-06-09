@@ -82,6 +82,10 @@
     document.getElementsByTagName('body')[0].removeAttribute('class');
   }
 
+  function suntimes() {
+    _hammer_tpModal();
+  }
+
   function usatoday() {
     document.getElementsByTagName('html')[0].removeAttribute('style');
     document.getElementsByTagName('body')[0].removeAttribute('style');
@@ -103,6 +107,7 @@
     'www.miamiherald.com': miamiherald,
     'www.nytimes.com': nytimes,
     'www.realclearpolitics.com': realclearpolitics,
+    'chicago.suntimes.com': suntimes,
     'www.usatoday.com': usatoday,
     'www.washingtonpost.com': washingtonpost,
   };
