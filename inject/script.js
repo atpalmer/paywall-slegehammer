@@ -62,6 +62,12 @@
     _hammer_dssMeterup();
   }
 
+  function miamiherald() {
+    _removeElement(document.getElementsByClassName('fc-dialog-overlay')[0]);
+    _removeElement(document.getElementsByClassName('fc-dialog-container')[0]);
+    document.getElementsByTagName('body')[0].removeAttribute('style');
+  }
+
   function nytimes() {
     _removeElement(document.getElementById('gateway-content'));
     _removeElement(document.getElementById('app').firstChild.firstChild.lastChild);
@@ -94,6 +100,7 @@
     'www.forbes.com': forbes,
     'foreignpolicy.com': foreignpolicy,
     'www.latimes.com': latimes,
+    'www.miamiherald.com': miamiherald,
     'www.nytimes.com': nytimes,
     'www.realclearpolitics.com': realclearpolitics,
     'www.usatoday.com': usatoday,
