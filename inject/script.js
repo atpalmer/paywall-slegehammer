@@ -35,6 +35,10 @@
     document.getElementsByTagName('body')[0].removeAttribute('class');
   }
 
+  function apnews() {
+    _hammer_tpModal();
+  }
+
   function bloomberg() {
     document.getElementsByTagName('html')[0].removeAttribute('data-paywall-overlay-status');
     document.getElementsByTagName('body')[0].removeAttribute('data-paywall-overlay-status');
@@ -98,6 +102,7 @@
   }
 
   const hostmap = {
+    'apnews.com': apnews,
     'www.bloomberg.com': bloomberg,
     'www.businessinsider.com': businessinsider,
     'www.chicagotribune.com': chicagotribune,
