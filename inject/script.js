@@ -99,6 +99,8 @@
 
   function washingtonpost() {
     Array.from(document.getElementsByClassName('fixed')).forEach(_removeElement);
+    document.getElementsByTagName('html')[0].removeAttribute('style');
+    document.getElementsByTagName('body')[0].removeAttribute('style');
   }
 
   const hostmap = {
